@@ -17,6 +17,10 @@ Create an alias `config` which we will use instead of the regular `git` when we 
 
     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+Checkout the actual content from the bare repository to your $HOME:
+
+    config checkout
+
 Hide files that are not explicitly being tracked yet. When you type `config status` and other commands later, files that we are not interested in tracking will not show up as untracked.
 
     config config status.showUntrackedFiles no
