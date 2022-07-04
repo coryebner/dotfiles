@@ -11,7 +11,7 @@ to be registered as authorized on Github.
 
 Clone config as bare repo
 
-    git clone --bare git@github.com:coryebner/dotfiles.git ./dotfiles
+    git clone --bare git@github.com:coryebner/dotfiles.git ~/.dotfiles
 
 Create an alias `config` which we will use instead of the regular `git` when we want to interact with our configuration repository.
 
