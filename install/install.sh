@@ -20,6 +20,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 install "tmux"
 install "tldr"
+install "tree"
 install "fzf"
 install "ripgrep"
 
@@ -27,7 +28,17 @@ sudo yum -y install ninja-build libtool autoconf automake cmake gcc gcc-c++ make
 if ! [ -d $HOME/build/neovim ]; then
     git clone https://github.com/neovim/neovim ~/build/neovim
     cd ~/build/neovim/
-    make
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
+    cd ~
 fi
-#
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.zshrc
+nvm install --lts
+
+install "java-17-openjdk.x86_64"
+
+npm install sfdx-cli --global
+npm install @salesforce/cli --global
+

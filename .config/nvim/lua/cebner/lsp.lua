@@ -32,9 +32,20 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+
 -- Salesforce Apex
 require'lspconfig'.apex_ls.setup {
-  apex_jar_path = '/home/cebner/language-servers/apex-jorje-lsp.jar',
+  apex_jar_path = '~/.local/share/nvim/lsp_servers/apex_ls/apex-jorje-lsp.jar',
   apex_enable_semantic_errors = false, -- Whether to allow Apex Language Server to surface semantic errors
   apex_enable_completion_statistics = false, -- Whether to allow Apex Language Server to collect telemetry on code completion usage
 }
