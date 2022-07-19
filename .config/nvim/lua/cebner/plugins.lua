@@ -62,13 +62,13 @@ packer.startup(function(use)
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    } 
-
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }
     use {
         'nvim-treesitter/playground',
         run = ':TSInstall query'
     } 
+    use("p00f/nvim-ts-rainbow")
 
     use("romgrk/nvim-treesitter-context")
 
